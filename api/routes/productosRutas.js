@@ -2,14 +2,14 @@ const express = require('express');
 const router=express.Router();
 
 const {
-    traerProductos,
-    traerProducVeget,
-    traerProducCeliaco
+     todosLosProductos,
+     agregarProductos
+   
+
 }=require('../controllers/productosControllers')
 
 //GET
-router.get("",traerProductos);
-router.get("/vegetariano",traerProducVeget);
-router.get("/celiaco",traerProducCeliaco);
+router.get("/getProduct",todosLosProductos);
+router.post("/addProducts",agregarProductos)
 
-module.exports=router
+module.exports=router 

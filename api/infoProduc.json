@@ -1,7 +1,10 @@
 [{
-    "producto":"remera",
-    "precio":20
+    "nombre":"Pizza napolitana",
+    "precio":1500
 },{
-    "producto":"pantalon",
-    "precio":100
+    "nombre":"Pizza Anana",
+    "precio":1000
+},{
+    "nombre":"Pizza Rucula",
+    "precio":1200
 }]
