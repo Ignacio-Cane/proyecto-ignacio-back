@@ -2,13 +2,14 @@ const express = require('express');
 const router=express.Router();
 
 const {
-    obtenerDatoUsuario,
-    verificacionUsuario
+    guardarUsuario,
+    login,
+    verificacionUsuario,
+    recuperarContraseña
 }=require('../controllers/usuariosControllers');
 
-router.get("/:dato",obtenerDatoUsuario);
-
 //POST
-router.post('/usuarioIngresado',verificacionUsuario);
-
+router.post("/check",guardarUsuario);
+router.post("/login",login,verificacionUsuario);
+router.put("/forget", recuperarContraseña);
 module.exports=router;
