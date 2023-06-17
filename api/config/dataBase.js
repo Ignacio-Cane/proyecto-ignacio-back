@@ -3,7 +3,8 @@ require('dotenv').config();
 dataBaseInfo={
     host: process.env.HOST,
     user:process.env.DB_USER,
-    database:process.env.DB
+    database:process.env.DB,
+    password:process.env.PASSWORD
 };
 
 const dbConnection=mysql.createConnection(dataBaseInfo);
