@@ -1,7 +1,7 @@
 const dbConnection = require('../config/dataBase');
 const jwt=require('jsonwebtoken');
 require('dotenv').config();
-const passSeg= process.env.PASS_SEGURA;
+const password= process.env.PASS_SEGURA;
 const bcrypt =require('bcrypt');
 
 const guardarUsuario =async(req,res)=>{
@@ -39,7 +39,7 @@ const login=(req,res)=>{
                 if(contraseñaOk == true){
                     console.log('Usuario y contraseña Correcta')
 
-                    jwt.sign({usuario},passSeg,{expiresIn:'30m'},(error,token)=>{
+                    jwt.sign({usuario},password,{expiresIn:'30m'},(error,token)=>{
                         if(error){
                             res.send(error)
                         }else{
@@ -63,7 +63,7 @@ const verificacionUsuario=(req,res,next)=>{
     const token= authoToken.split(' ').pop();
     //console.log(token);
     //next();
-    jwt.verify(token,passSeg,(error, data)=>{
+    jwt.verify(token,password,(error, data)=>{
         if(error){
             res.send(error)
         }else{
