@@ -29,7 +29,7 @@ const traerUnProducto=(req,res)=>{
 const cargarProducto=(req,res)=>{
     //const usuario= req.auth
     const {nombre,precio}=req.body;
-    const imagen='http://localhost:4000/public/'+req.file.filename;
+    const imagen='https://api-proyecto-a0km.onrender.com/public/'+req.file.filename;
     console.log(imagen)
     console.log(req.body)
     dbConnection.query('INSERT INTO producto(nombre,precio,imagen)VALUES(?,?,?)',[nombre,parseInt(precio),imagen],(error,data)=>{

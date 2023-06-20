@@ -1,7 +1,7 @@
 const dbConnection = require('../config/dataBase');
 const jwt=require('jsonwebtoken');
 require('dotenv').config();
-const password= process.env.PASS_SEGURA;
+const password= process.env.PASS_JWT;
 const bcrypt =require('bcrypt');
 
 const guardarUsuario =async(req,res)=>{
@@ -34,6 +34,7 @@ const login=(req,res)=>{
             if(data.length == 0){
                return res.status(204).json('Usuario no registrado o incorrecto')
             }else{
+                console.log(data);
                 let info= data[0];
                 const contraseñaOk=await bcrypt.compare(contraseña,info.contraseña)
                 if(contraseñaOk == true){
@@ -50,6 +51,7 @@ const login=(req,res)=>{
                         }
                     })
                 }else{
+                    console.log('Contraseña incorrecta');
                     res.status(401).json({mensaje:'Contraseña incorrecta'})
                 }  
             }
